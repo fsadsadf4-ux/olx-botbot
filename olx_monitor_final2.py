@@ -19,8 +19,9 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 # ========== НАСТРОЙКИ (не меняй, если не нужно) ==========
-BOT_TOKEN = "8380564038:AAGfn2ULRPSSMRZzS3nudXOZjPrleRo6xK0"
-CHAT_ID = 7238085445
+import os
+BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+CHAT_ID = int(os.getenv("TELEGRAM_CHAT_ID"))
 CHECK_INTERVAL = 60  # seconds between checks
 SEEN_FILE = "seen_links.json"
 
@@ -301,3 +302,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
